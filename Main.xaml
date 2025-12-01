@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="685.6,813.6" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="850.4,813.6" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>GlobalConstantsNamespace</x:String>
@@ -107,14 +107,14 @@
             <av:PointCollection x:Key="ConnectorLocation">345,218.2 345,255</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Init Setting" sap:VirtualizedContainerService.HintSize="512,361.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Init Setting" sap:VirtualizedContainerService.HintSize="200,83.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Read Config &amp; Parameter" sap:VirtualizedContainerService.HintSize="449.6,346.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Read Config &amp; Assets" sap:VirtualizedContainerService.HintSize="449.6,346.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="ConfigFilePath" />
             </Sequence.Variables>
@@ -126,15 +126,9 @@
             <ui:ReadTextFile File="{x:Null}" Content="[ConfigFilePath]" DisplayName="Read Text File" FileName="Data\Config_FilePath.txt" sap:VirtualizedContainerService.HintSize="387.2,80.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Module\Global\InitAllSettings.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Module\Global\InitAllSettings.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ConfigFilePath" />
-                </InArgument>
-                <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">
-                  <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{&quot;Settings&quot;}" />
-                </InArgument>
-                <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config">
-                  <VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                </OutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">[ConfigFilePath]</InArgument>
+                <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">[{"Settings"}]</InArgument>
+                <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config">[Config]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
@@ -155,13 +149,13 @@
                 <av:PointCollection x:Key="ConnectorLocation">345,338.2 345,375</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Main Process" sap:VirtualizedContainerService.HintSize="200,83.2" sap2010:WorkflowViewState.IdRef="Sequence_13">
+            <Sequence DisplayName="Main Process" sap:VirtualizedContainerService.HintSize="548.8,1419.2" sap2010:WorkflowViewState.IdRef="Sequence_13">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <TryCatch DisplayName="Try Catch Process ASJ File" sap:VirtualizedContainerService.HintSize="454,349" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch DisplayName="Try Catch Process ASJ File" sap:VirtualizedContainerService.HintSize="486.4,336" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -169,7 +163,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <TryCatch.Try>
-                  <Sequence DisplayName="Process ASJ File" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence DisplayName="Process ASJ File" sap:VirtualizedContainerService.HintSize="449.6,104.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -178,7 +172,7 @@
                   </Sequence>
                 </TryCatch.Try>
                 <TryCatch.Catches>
-                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="420,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="452.8,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -188,13 +182,13 @@
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="484,157" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,216.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Sequence DisplayName="Assign to Status to Failed" sap:VirtualizedContainerService.HintSize="450,112" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <Sequence DisplayName="Assign to Status to Failed" sap:VirtualizedContainerService.HintSize="449.6,104.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -216,28 +210,28 @@
                   </Sequence>
                 </TryCatch.Finally>
               </TryCatch>
-              <Sequence DisplayName="Process BNS File" sap:VirtualizedContainerService.HintSize="454,121" sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <Sequence DisplayName="Process BNS File" sap:VirtualizedContainerService.HintSize="486.4,104.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Sequence>
-              <Sequence DisplayName="Process BSIM File" sap:VirtualizedContainerService.HintSize="454,121" sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <Sequence DisplayName="Process BSIM File" sap:VirtualizedContainerService.HintSize="486.4,104.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Sequence>
-              <Sequence DisplayName="Process SAMSEK File" sap:VirtualizedContainerService.HintSize="454,121" sap2010:WorkflowViewState.IdRef="Sequence_11">
+              <Sequence DisplayName="Process SAMSEK File" sap:VirtualizedContainerService.HintSize="486.4,104.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Sequence>
-              <Sequence DisplayName="Process SMMF File" sap:VirtualizedContainerService.HintSize="454,428" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <Sequence DisplayName="Process SMMF File" sap:VirtualizedContainerService.HintSize="486.4,496.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
