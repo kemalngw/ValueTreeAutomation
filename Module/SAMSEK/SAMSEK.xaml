@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>848.8,2723.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>848.8,2853.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SAMSEK_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -138,7 +138,7 @@
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SAMSEK" sap:VirtualizedContainerService.HintSize="608,2658.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SAMSEK" sap:VirtualizedContainerService.HintSize="608,2788.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtSamsek" />
       <Variable x:TypeArguments="x:String" Name="SemasekFileInput" />
@@ -146,6 +146,7 @@
       <Variable x:TypeArguments="sd:DataTable" Name="dtSemasekOutput" />
       <Variable x:TypeArguments="x:Int32" Name="CurrentColIndex" />
       <Variable x:TypeArguments="ui:WorkbookApplication" Name="wrout" />
+      <Variable x:TypeArguments="x:Int32" Name="ColCounter" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -362,16 +363,18 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <Sequence DisplayName="Write to Gsheet" sap:VirtualizedContainerService.HintSize="545.6,1612" sap2010:WorkflowViewState.IdRef="Sequence_18">
+    <Sequence DisplayName="Write to Gsheet" sap:VirtualizedContainerService.HintSize="545.6,1742.4" sap2010:WorkflowViewState.IdRef="Sequence_18">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:RemoveDataColumn Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="0" DataTable="[dtSemasekOutput]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="483.2,188" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_1" />
       <ui:RemoveDataColumn Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="0" DataTable="[dtSemasekOutput]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="483.2,188" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_2" />
       <ui:RemoveDataColumn Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="0" DataTable="[dtSemasekOutput]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="483.2,188" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_3" />
       <ui:RemoveDataColumn Column="{x:Null}" ColumnName="{x:Null}" ColumnIndex="1" DataTable="[dtSemasekOutput]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="483.2,188" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_4" />
+      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="483.2,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[convert.ToChar(64+28).ToString+&quot;46&quot;]" />
       <ugas:GoogleSheetsApplicationScope ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" FileId="{x:Null}" Filename="{x:Null}" ParentFolderId="{x:Null}" ParentFolderPath="{x:Null}" Timeout="{x:Null}" Account="Please select an account." Action="UseExisting" sap2010:Annotation.AnnotationText="ganti dengan config(&quot;samsek_id&quot;), account" ConnectionAccountName="testnyaratna@gmail.com #2" ConnectionId="4297814a-68f9-4e08-b0b4-fe231efd24b2" DisplayName="Use Google Spreadsheet" sap:VirtualizedContainerService.HintSize="483.2,588" sap2010:WorkflowViewState.IdRef="GoogleSheetsApplicationScope_2" Mode="EnterId" SpreadsheetId="1LyxunBS3UzfctzDsHt8hPXCuMFeYvFtEsD-YcmkWNfc" SpreadsheetName="SAMSEK Value Tree" UseConnectionService="True">
         <ugas:GoogleSheetsApplicationScope.Body>
           <ActivityAction x:TypeArguments="ugas:IGoogleSheetTarget">
@@ -384,7 +387,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uga:WriteRange ContinueOnError="{x:Null}" Request="{x:Null}" Result="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" DataTable="[dtSemasekOutput]" DisplayName="Write Range" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="387.2,161.6" sap2010:WorkflowViewState.IdRef="WriteRange_5" IncludeHeaders="False" IsInsideBatchUpdateScope="False" SheetName="Budget and Actual" StartingCell="S46" />
+              <uga:WriteRange ContinueOnError="{x:Null}" Request="{x:Null}" Result="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" DataTable="[dtSemasekOutput]" DisplayName="Write Range" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="387.2,161.6" sap2010:WorkflowViewState.IdRef="WriteRange_5" IncludeHeaders="False" IsInsideBatchUpdateScope="False" SheetName="Budget and Actual" StartingCell="[convert.ToChar(64+28).ToString+&quot;46&quot;]" />
             </Sequence>
           </ActivityAction>
         </ugas:GoogleSheetsApplicationScope.Body>
