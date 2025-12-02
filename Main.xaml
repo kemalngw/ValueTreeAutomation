@@ -80,6 +80,7 @@
   <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="696,748.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Config" />
+      <Variable x:TypeArguments="x:String" Name="ConfigFilePath" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -107,7 +108,7 @@
             <av:PointCollection x:Key="ConnectorLocation">345,218.2 345,255</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Init Setting" sap:VirtualizedContainerService.HintSize="512,581.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Init Setting" sap:VirtualizedContainerService.HintSize="200,83.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -115,9 +116,6 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Sequence DisplayName="Read Config &amp; Assets" sap:VirtualizedContainerService.HintSize="449.6,346.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="ConfigFilePath" />
-            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -150,16 +148,16 @@
                 <av:PointCollection x:Key="ConnectorLocation">345,338.2 345,375</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Main Process" sap:VirtualizedContainerService.HintSize="200,83.2" sap2010:WorkflowViewState.IdRef="Sequence_13">
+            <Sequence DisplayName="Main Process" sap:VirtualizedContainerService.HintSize="609.6,1033.6" sap2010:WorkflowViewState.IdRef="Sequence_13">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <TryCatch DisplayName="Try Catch Process ASJ File" sap:VirtualizedContainerService.HintSize="486.4,336" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch DisplayName="Try Catch Process ASJ File" sap:VirtualizedContainerService.HintSize="547.2,52.8" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
@@ -211,51 +209,73 @@
                   </Sequence>
                 </TryCatch.Finally>
               </TryCatch>
-              <Sequence DisplayName="Process BNS File" sap:VirtualizedContainerService.HintSize="486.4,104.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <Sequence DisplayName="Process BNS File" sap:VirtualizedContainerService.HintSize="547.2,104.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Sequence>
-              <Sequence DisplayName="Process BSIM File" sap:VirtualizedContainerService.HintSize="486.4,104.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <Sequence DisplayName="Process BSIM File" sap:VirtualizedContainerService.HintSize="547.2,104.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </Sequence>
-              <Sequence DisplayName="Process SAMSEK File" sap:VirtualizedContainerService.HintSize="486.4,104.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
+              <Sequence DisplayName="Process SAMSEK File" sap:VirtualizedContainerService.HintSize="547.2,225.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-              </Sequence>
-              <Sequence DisplayName="Process SMMF File" sap:VirtualizedContainerService.HintSize="486.4,433.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SMMF_ReadExcelInput - Invoke Workflow File (Module\SMMF\SMMF_ReadExcelInput.xaml)" sap:VirtualizedContainerService.HintSize="416,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Module\SMMF\SMMF_ReadExcelInput.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Module\SAMSEK\SAMSEK.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Module\SAMSEK\SAMSEK_new.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_InputFolderPath" />
-                    <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_COF" />
-                    <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_PNL" />
-                    <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_SummaryRevenue" />
-                    <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_TAT" />
-                  </ui:InvokeWorkflowFile.Arguments>
-                </ui:InvokeWorkflowFile>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SMMF_Process - Invoke Workflow File (Module\SMMF\SMMF_Process.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Module\SMMF\SMMF_Process.xaml">
-                  <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_COF" />
-                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_SummaryRevenue" />
-                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PNL" />
-                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TAT" />
+                    <InArgument x:TypeArguments="x:String" x:Key="ConfigFilePath">
+                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="ConfigFilePath" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="Config">
+                      <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
+                    </InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </Sequence>
+              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="547.2,273.6" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                <ui:CommentOut.Body>
+                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,195.2" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Process SMMF File" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SMMF_ReadExcelInput - Invoke Workflow File (Module\SMMF\SMMF_ReadExcelInput.xaml)" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Module\SMMF\SMMF_ReadExcelInput.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_InputFolderPath" />
+                          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_COF" />
+                          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_PNL" />
+                          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_SummaryRevenue" />
+                          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_TAT" />
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SMMF_Process - Invoke Workflow File (Module\SMMF\SMMF_Process.xaml)" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Module\SMMF\SMMF_Process.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_COF" />
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_SummaryRevenue" />
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PNL" />
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TAT" />
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                    </Sequence>
+                  </Sequence>
+                </ui:CommentOut.Body>
+              </ui:CommentOut>
             </Sequence>
             <FlowStep.Next>
               <FlowStep x:Name="__ReferenceID0">
