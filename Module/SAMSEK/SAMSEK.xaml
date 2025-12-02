@@ -387,7 +387,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uga:WriteRange ContinueOnError="{x:Null}" Request="{x:Null}" Result="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" DataTable="[dtSemasekOutput]" DisplayName="Write Range" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="387.2,161.6" sap2010:WorkflowViewState.IdRef="WriteRange_5" IncludeHeaders="False" IsInsideBatchUpdateScope="False" SheetName="Budget and Actual" StartingCell="[convert.ToChar(64+28).ToString+&quot;46&quot;]" />
+              <uga:WriteRange ContinueOnError="{x:Null}" Request="{x:Null}" Result="{x:Null}" SpreadsheetId="{x:Null}" AuthScopesInvalid="False" DataTable="[dtSemasekOutput]" DisplayName="Write Range" GoogleSpreadsheet="[Spreadsheet]" sap:VirtualizedContainerService.HintSize="387.2,161.6" sap2010:WorkflowViewState.IdRef="WriteRange_5" IncludeHeaders="False" IsInsideBatchUpdateScope="False" SheetName="Budget and Actual" StartingCell="S46" />
             </Sequence>
           </ActivityAction>
         </ugas:GoogleSheetsApplicationScope.Body>
