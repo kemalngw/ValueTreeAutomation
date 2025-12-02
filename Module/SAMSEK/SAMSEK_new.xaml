@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>848.8,4666.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>848.8,3981.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SAMSEK_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -146,19 +146,23 @@
       <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="754.4,4601.6" sap2010:WorkflowViewState.IdRef="Sequence_20">
+  <Sequence sap:VirtualizedContainerService.HintSize="754.4,3916.8" sap2010:WorkflowViewState.IdRef="Sequence_20">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message samsek" sap:VirtualizedContainerService.HintSize="692,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;SAMSEK...&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="692,4307.2" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="692,3622.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="SAMSEK" sap:VirtualizedContainerService.HintSize="655.2,4076" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="SAMSEK" sap:VirtualizedContainerService.HintSize="655.2,3391.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="dtSamsek" />
-            <Variable x:TypeArguments="x:String" Name="SamsekFileInput" />
+            <Variable x:TypeArguments="x:String" Name="SamsekFileInput">
+              <Variable.Default>
+                <Literal x:TypeArguments="x:String">D:\Project\Sinarmas\2025\VALUE TREE\20251127_Big 5 Data template shared to NGW\SAMSEK_Financial Data from BU_vShared.xlsx</Literal>
+              </Variable.Default>
+            </Variable>
             <Variable x:TypeArguments="ui:WorkbookApplication" Name="wrInput" />
             <Variable x:TypeArguments="sd:DataTable" Name="dtSamsekOutput" />
             <Variable x:TypeArguments="x:Int32" Name="IndexColumn_Input" />
@@ -172,13 +176,14 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Check Input" sap:VirtualizedContainerService.HintSize="592.8,971.2" sap2010:WorkflowViewState.IdRef="Sequence_21">
+          <Sequence DisplayName="Check Input" sap:VirtualizedContainerService.HintSize="592.8,286.4" sap2010:WorkflowViewState.IdRef="Sequence_28">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="[Config(&quot;samsek_input_folder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="529.6,456" sap2010:WorkflowViewState.IdRef="ForEachFileX_2" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+            <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="[Config(&quot;samsek_input_folder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="387.2,81.6" sap2010:WorkflowViewState.IdRef="ForEachFileX_2" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
               <ui:ForEachFileX.Body>
                 <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
                   <ActivityAction.Argument1>
@@ -187,13 +192,13 @@
                   <ActivityAction.Argument2>
                     <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                   </ActivityAction.Argument2>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,192.8" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,193.6" sap2010:WorkflowViewState.IdRef="Sequence_23">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_12">
+                    <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_12">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[SamsekFileInput]</OutArgument>
                       </Assign.To>
@@ -206,12 +211,18 @@
               </ui:ForEachFileX.Body>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ForEachFileX>
-            <If Condition="[SamsekFileInput is Nothing]" sap:VirtualizedContainerService.HintSize="529.6,363.2" sap2010:WorkflowViewState.IdRef="If_5">
+            <If Condition="[SamsekFileInput is Nothing]" sap:VirtualizedContainerService.HintSize="387.2,52.8" sap2010:WorkflowViewState.IdRef="If_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
               <If.Then>
                 <Sequence sap:VirtualizedContainerService.HintSize="377.6,180" sap2010:WorkflowViewState.IdRef="Sequence_25">
                   <sap:WorkflowViewStateService.ViewState>
@@ -443,18 +454,10 @@
           <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[dtSamsekOutput]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="592.8,116" sap2010:WorkflowViewState.IdRef="WriteRange_6" SheetName="sheet1" WorkbookPath="nih.xlsx" />
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Module\Global\WriteRangeGSheet.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="592.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Module\Global\WriteRangeGSheet.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="TableOutput">
-                <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dtSamsekOutput" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="ID">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;samsek_output_id&quot;).ToString" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="Range">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="IndexColumn_Ouput+&quot;46&quot;" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="SheetName">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;samsek_sheetname_output&quot;).ToString" />
-              </InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="TableOutput">[dtSamsekOutput]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="ID">[Config("samsek_output_id").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Range">[IndexColumn_Ouput+"46"]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="SheetName">[Config("samsek_sheetname_output").ToString]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:SetAsset TimeoutMS="{x:Null}" AssetName="[Config(&quot;samsek_index_col_asset&quot;).ToString]" DisplayName="Set Asset" FolderPath="[config(&quot;orchestrator_folder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="592.8,194.4" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[cint(Config(&quot;SAMSEK Index Column&quot;))+1]" />
