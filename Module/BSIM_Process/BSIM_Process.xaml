@@ -106,13 +106,13 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="BSIM_Process" sap:VirtualizedContainerService.HintSize="864.0000000000001,3081.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="BSIM_Process" sap:VirtualizedContainerService.HintSize="864.0000000000001,3256" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="BSIM_Process" sap:VirtualizedContainerService.HintSize="611.2,3058.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="BSIM_Process" sap:VirtualizedContainerService.HintSize="611.2,3232.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dt_paramBSIM" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt_InputBSIM" />
@@ -123,6 +123,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
+      <ui:GetRobotAsset AssetName="{x:Null}" TimeoutMS="{x:Null}" Value="{x:Null}" CacheStrategy="None" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="577.6,174.4" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1" />
       <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="577.6,1463.2" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
         <ueab:ExcelProcessScopeX.Body>
           <ActivityAction x:TypeArguments="ui:IExcelProcess">
