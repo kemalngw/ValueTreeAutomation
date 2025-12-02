@@ -162,7 +162,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <uga:GSuiteApplicationScope Account="{x:Null}" ApiKey="{x:Null}" ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Folder="{x:Null}" SecureCredentialSecret="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="ServiceAccountKey" DataStoreLocation="DISK" DisplayName="Google Workspace Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="449.6,491.2" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_3" KeyPath="uipath-testing-479507-4b42728236ef.json" KeyType="JSON" OAuthClient="UIPATH" Password="notasecret" ServiceAccountEmail="uipath-service-account@uipath-testing-479507.iam.gserviceaccount.com" Services="Unselected">
+    <uga:GSuiteApplicationScope Account="{x:Null}" ApiKey="{x:Null}" ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Folder="{x:Null}" SecureCredentialSecret="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="ServiceAccountKey" DataStoreLocation="DISK" DisplayName="Google Workspace Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="449.6,491.2" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_3" KeyPath="C:\Users\Kevin\Downloads\uipath-testing-479507-4b42728236ef.json" KeyType="JSON" OAuthClient="UIPATH" Password="notasecret" ServiceAccountEmail="uipath-service-account@uipath-testing-479507.iam.gserviceaccount.com" Services="Unselected">
       <uga:GSuiteApplicationScope.AuthenticationScopes>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
           <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/spreadsheets</InArgument>

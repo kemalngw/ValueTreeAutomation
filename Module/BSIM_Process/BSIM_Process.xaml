@@ -117,13 +117,13 @@
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="BSIM_Process" sap:VirtualizedContainerService.HintSize="860.8000000000001,2984.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="BSIM_Process" sap:VirtualizedContainerService.HintSize="860.8000000000001,3130.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="BSIM_Process" sap:VirtualizedContainerService.HintSize="611.2,2961.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="BSIM_Process" sap:VirtualizedContainerService.HintSize="611.2,3107.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dt_paramBSIM" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt_InputBSIM" />
@@ -280,7 +280,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:ForEachRow>
-      <Sequence DisplayName="Write to GSheet" sap:VirtualizedContainerService.HintSize="577.6,1111.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
+      <Sequence DisplayName="Write to GSheet" sap:VirtualizedContainerService.HintSize="577.6,1256.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -318,7 +318,23 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:RemoveDataColumn>
-        <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[dt_paramBSIM]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="416,139.2" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="sheet1" WorkbookPath="test.xlsx" />
+        <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[dt_paramBSIM]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="416,148" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="sheet1" WorkbookPath="test.xlsx" />
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Module\Global\WriteCellGSheet.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="416,136.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Module\Global\WriteCellGSheet.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtOutput">
+              <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_paramBSIM" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_strIDSpreadsheet">
+              <Literal x:TypeArguments="x:String">1NwCKO4dU_oiZ4xU4z0SqWiRpMVpuFD0nV6Lj7Vxy9TQ</Literal>
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_strSheetName">
+              <Literal x:TypeArguments="x:String">Budget and Actual</Literal>
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_strCell">
+              <Literal x:TypeArguments="x:String">S110</Literal>
+            </InArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
       </Sequence>
       <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="577.6,209.6" sap2010:WorkflowViewState.IdRef="CommentOut_1">
         <ui:CommentOut.Body>

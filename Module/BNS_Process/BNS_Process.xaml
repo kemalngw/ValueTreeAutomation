@@ -112,13 +112,13 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="BNS_Process" sap:VirtualizedContainerService.HintSize="860.8000000000001,3453.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="BNS_Process" sap:VirtualizedContainerService.HintSize="860.8000000000001,3583.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="BNS_Process" sap:VirtualizedContainerService.HintSize="611.2,3430.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="BNS_Process" sap:VirtualizedContainerService.HintSize="611.2,3560" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dt_InputBNS" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt_paramBNS" />
@@ -205,19 +205,19 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ueab:ExcelProcessScopeX>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Menyimpan value sesuai index ke data table" DataTable="[dt_paramBNS]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="577.6,404.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Menyimpan value sesuai index ke data table" DataTable="[dt_paramBNS]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="577.6,534.4" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="530.4,224.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="530.4,354.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[CurrentRow(&quot;Index Resource&quot;).ToString]" sap:VirtualizedContainerService.HintSize="496.8,164.8" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+              <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[CurrentRow(&quot;Index Resource&quot;).ToString]" sap:VirtualizedContainerService.HintSize="496.8,294.4" sap2010:WorkflowViewState.IdRef="Switch`1_2">
                 <Switch.Default>
                   <If Condition="[Not String.IsNullOrWhiteSpace(CurrentRow(&quot;Index Resource&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="500.8,394.4" sap2010:WorkflowViewState.IdRef="If_1">
                     <sap:WorkflowViewStateService.ViewState>
@@ -266,6 +266,31 @@
                     <InArgument x:TypeArguments="x:Object">["="+CurrentRow("Formula").ToString]</InArgument>
                   </Assign.Value>
                 </Assign>
+                <ui:CommentOut x:Key="s" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="467.2,164.8" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_4">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Object">[CurrentRow("Value")]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Object">[dt_InputBNS.Rows(CInt(CurrentRow("Index Resource").ToString)).Item(intidxCol).ToString]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CommentOut>
               </Switch>
             </Sequence>
           </ActivityAction>
