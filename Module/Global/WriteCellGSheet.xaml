@@ -1,10 +1,22 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="WriteCellGSheet" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ug="clr-namespace:UiPath.GSuite;assembly=UiPath.GSuite" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_dtOutput" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_strIDSpreadsheet" Type="InArgument(x:String)" />
+    <x:Property Name="in_strSheetName" Type="InArgument(x:String)" />
+    <x:Property Name="in_strCell" Type="InArgument(x:String)" />
   </x:Members>
   <this:WriteCellGSheet.in_dtOutput>
     <InArgument x:TypeArguments="sd:DataTable" />
   </this:WriteCellGSheet.in_dtOutput>
+  <this:WriteCellGSheet.in_strIDSpreadsheet>
+    <InArgument x:TypeArguments="x:String" />
+  </this:WriteCellGSheet.in_strIDSpreadsheet>
+  <this:WriteCellGSheet.in_strSheetName>
+    <InArgument x:TypeArguments="x:String" />
+  </this:WriteCellGSheet.in_strSheetName>
+  <this:WriteCellGSheet.in_strCell>
+    <InArgument x:TypeArguments="x:String" />
+  </this:WriteCellGSheet.in_strCell>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
@@ -110,9 +122,12 @@
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="WriteCellGSheet" sap:VirtualizedContainerService.HintSize="860.8000000000001,716.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="WriteCellGSheet" sap:VirtualizedContainerService.HintSize="860.8000000000001,571.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -147,48 +162,33 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <uga:GSuiteApplicationScope Account="{x:Null}" ApiKey="{x:Null}" ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Folder="{x:Null}" SecureCredentialSecret="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="ServiceAccountKey" DataStoreLocation="DISK" DisplayName="Google Workspace Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="449.6,636.8" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_3" KeyPath="uipath-testing-479507-4b42728236ef.json" KeyType="JSON" OAuthClient="UIPATH" Password="notasecret" ServiceAccountEmail="uipath-service-account@uipath-testing-479507.iam.gserviceaccount.com" Services="Unselected">
+    <uga:GSuiteApplicationScope Account="{x:Null}" ApiKey="{x:Null}" ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Folder="{x:Null}" SecureCredentialSecret="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="ServiceAccountKey" DataStoreLocation="DISK" DisplayName="Google Workspace Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="449.6,491.2" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_3" KeyPath="uipath-testing-479507-4b42728236ef.json" KeyType="JSON" OAuthClient="UIPATH" Password="notasecret" ServiceAccountEmail="uipath-service-account@uipath-testing-479507.iam.gserviceaccount.com" Services="Unselected">
       <uga:GSuiteApplicationScope.AuthenticationScopes>
-        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+          <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/spreadsheets</InArgument>
+        </scg:List>
       </uga:GSuiteApplicationScope.AuthenticationScopes>
       <uga:GSuiteApplicationScope.Body>
         <ActivityAction x:TypeArguments="ug:SimpleObjectContainer">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ug:SimpleObjectContainer" Name="GSuiteScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,501.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,356" sap2010:WorkflowViewState.IdRef="Sequence_10">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uga:WriteRangeConnections ConnectionAccountName="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" BrowserItemFriendlyName="BSIM Value Tree " BrowserItemId="https://docs.google.com/spreadsheets/d/1NwCKO4dU_oiZ4xU4z0SqWiRpMVpuFD0nV6Lj7Vxy9TQ/edit?usp=drivesdk" ConnectionId="00f5698f-e4f9-4009-90ee-534808fbe146" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="382.4,393.6" sap2010:WorkflowViewState.IdRef="WriteRangeConnections_1" IncludeHeaders="False" ItemSelectionMode="Browse" Range="'Budget and Actual'" Source="[in_dtOutput]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False" WriteMode="Overwrite">
-              <uga:WriteRangeConnections.FileIdBackup>
-                <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="Browse">
-                  <usau:BackupSlot.BackupValues>
-                    <scg:List x:TypeArguments="x:Object" x:Key="Browse" Capacity="2">
-                      <InArgument x:TypeArguments="x:String" />
-                      <InArgument x:TypeArguments="x:String" />
-                    </scg:List>
-                    <scg:List x:TypeArguments="x:Object" x:Key="UseExisting" Capacity="1">
-                      <x:Null />
-                    </scg:List>
-                    <scg:List x:TypeArguments="x:Object" x:Key="UrlOrId" Capacity="1">
-                      <InArgument x:TypeArguments="x:String" />
-                    </scg:List>
-                  </usau:BackupSlot.BackupValues>
-                </usau:BackupSlot>
-              </uga:WriteRangeConnections.FileIdBackup>
-            </uga:WriteRangeConnections>
-            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="382.4,48" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+            <uga:WriteRange ContinueOnError="{x:Null}" GoogleSpreadsheet="{x:Null}" Request="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" DataTable="[in_dtOutput]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="382.4,248" sap2010:WorkflowViewState.IdRef="WriteRange_1" IncludeHeaders="False" IsInsideBatchUpdateScope="False" SheetName="[in_strSheetName]" SpreadsheetId="[in_strIDSpreadsheet]" StartingCell="[in_strCell]" />
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="382.4,48" sap2010:WorkflowViewState.IdRef="CommentOut_8">
               <ui:CommentOut.Body>
-                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,276" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,276" sap2010:WorkflowViewState.IdRef="Sequence_13">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uga:WriteCell ContinueOnError="{x:Null}" GoogleSpreadsheet="{x:Null}" Request="{x:Null}" AuthScopesInvalid="False" Cell="G48" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="382.4,216" sap2010:WorkflowViewState.IdRef="WriteCell_1" IsInsideBatchUpdateScope="False" SheetName="Budget and Actual IDR)" SpreadsheetId="1-mEngdNgUU-cBVwT8tOa5BhXtKuQ8dzerWT-9YAKdGo" Value="wdafa" />
+                  <uga:WriteCell ContinueOnError="{x:Null}" GoogleSpreadsheet="{x:Null}" Request="{x:Null}" AuthScopesInvalid="False" Cell="G48" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="382.4,216" sap2010:WorkflowViewState.IdRef="WriteCell_2" IsInsideBatchUpdateScope="False" SheetName="Budget and Actual IDR)" SpreadsheetId="1-mEngdNgUU-cBVwT8tOa5BhXtKuQ8dzerWT-9YAKdGo" Value="wdafa" />
                 </Sequence>
               </ui:CommentOut.Body>
               <sap:WorkflowViewStateService.ViewState>

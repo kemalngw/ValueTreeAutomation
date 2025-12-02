@@ -45,6 +45,14 @@
       <x:String>System.Numerics</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
       <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>UiPath.GSuite.Activities.Sheets</x:String>
+      <x:String>UiPath.GSuite.Activities.Sheets.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.GSuite</x:String>
+      <x:String>UiPath.GSuite.Contracts</x:String>
+      <x:String>UiPath.GSuite.Activities.Enums</x:String>
+      <x:String>System.Security</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -105,15 +113,17 @@
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="BSIM_Process" sap:VirtualizedContainerService.HintSize="860.8000000000001,3112.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="BSIM_Process" sap:VirtualizedContainerService.HintSize="860.8000000000001,2984.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="BSIM_Process" sap:VirtualizedContainerService.HintSize="611.2,3089.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="BSIM_Process" sap:VirtualizedContainerService.HintSize="611.2,2961.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dt_paramBSIM" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt_InputBSIM" />
@@ -201,19 +211,19 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ueab:ExcelProcessScopeX>
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Mendapatkan value sesuai index ke data table" DataTable="[dt_paramBSIM]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="577.6,532.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Mendapatkan value sesuai index ke data table" DataTable="[dt_paramBSIM]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="577.6,404.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="530.4,352.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="530.4,224.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[CurrentRow(&quot;Index Resource&quot;).ToString]" sap:VirtualizedContainerService.HintSize="496.8,292.8" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+              <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[CurrentRow(&quot;Index Resource&quot;).ToString]" sap:VirtualizedContainerService.HintSize="496.8,164.8" sap2010:WorkflowViewState.IdRef="Switch`1_2">
                 <Switch.Default>
                   <If Condition="[Not String.IsNullOrWhiteSpace(CurrentRow(&quot;Index Resource&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="If_1">
                     <sap:WorkflowViewStateService.ViewState>
