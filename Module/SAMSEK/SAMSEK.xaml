@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>848.8,610.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>848.8,2198.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SAMSEK_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -145,15 +145,15 @@
       <AssemblyReference>System.Collections</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="496,489.6" sap2010:WorkflowViewState.IdRef="Sequence_24">
+  <Sequence sap:VirtualizedContainerService.HintSize="672,2133.6" sap2010:WorkflowViewState.IdRef="Sequence_24">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="433.6,377.6" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="609.6,2021.6" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="SAMSEK" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="SAMSEK" sap:VirtualizedContainerService.HintSize="572.8,1790.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="dtSamsek" />
             <Variable x:TypeArguments="x:String" Name="SemasekFileInput" />
@@ -167,7 +167,7 @@
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -292,7 +292,7 @@
               <InArgument x:TypeArguments="x:String">[UiPath.Excel.Helpers.ExcelUtilities.ConvertColumnIndexToColumnLetter( StartCellIndex)]</InArgument>
             </Assign.Value>
           </Assign>
-          <Sequence DisplayName="Read Input and Parameter" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_17">
+          <Sequence DisplayName="Read Input and Parameter" sap:VirtualizedContainerService.HintSize="510.4,83.2" sap2010:WorkflowViewState.IdRef="Sequence_17">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -359,7 +359,7 @@
             </ui:ExcelApplicationScope>
             <ui:ExcelCloseWorkbook DisplayName="Close Workbook" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_2" Workbook="[wrout]" />
           </Sequence>
-          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtSemasekOutput]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="449.6,52.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtSemasekOutput]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="510.4,52.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
             <ui:ForEachRow.Body>
               <ActivityAction x:TypeArguments="sd:DataRow">
                 <ActivityAction.Argument>
@@ -402,7 +402,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:ForEachRow>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Module\Global\WriteRangeGSheet.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="449.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Module\Global\WriteRangeGSheet.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Module\Global\WriteRangeGSheet.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="510.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Module\Global\WriteRangeGSheet.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="sd:DataTable" x:Key="TableOutput">[dtSemasekOutput]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="ID">[Config("samsek_output_id").ToString]</InArgument>
@@ -410,14 +410,14 @@
               <InArgument x:TypeArguments="x:String" x:Key="SheetName">[Config("samsek_sheetname_output").ToString]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:SetAsset TimeoutMS="{x:Null}" AssetName="[Config(&quot;samsek_index_col_asset&quot;).ToString]" DisplayName="Set Asset" FolderPath="[Config(&quot;orchestrator_folder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="449.6,194.4" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[StartCellIndex]" />
+          <ui:SetAsset TimeoutMS="{x:Null}" AssetName="[Config(&quot;samsek_index_col_asset&quot;).ToString]" DisplayName="Set Asset" FolderPath="[Config(&quot;orchestrator_folder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="510.4,194.4" sap2010:WorkflowViewState.IdRef="SetAsset_1" Value="[StartCellIndex]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,212.8" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="576,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
