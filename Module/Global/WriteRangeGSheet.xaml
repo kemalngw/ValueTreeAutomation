@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>848.8,1832.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>848.8,1792.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>WriteCellGSheet_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -116,7 +116,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="WriteCellGSheet" sap:VirtualizedContainerService.HintSize="545.6,1768" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="WriteCellGSheet" sap:VirtualizedContainerService.HintSize="545.6,1728" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -154,7 +154,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:RemoveDataColumn>
-    <ugas:GoogleSheetsApplicationScope ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" FileId="{x:Null}" Filename="{x:Null}" ParentFolderId="{x:Null}" ParentFolderPath="{x:Null}" SpreadsheetName="{x:Null}" Timeout="{x:Null}" Account="Please select an account." Action="UseExisting" ConnectionAccountName="testnyaratna@gmail.com #4" ConnectionId="e6d2df73-9068-4101-ae0f-d1419153f2ce" DisplayName="Use Google Spreadsheet" sap:VirtualizedContainerService.HintSize="483.2,651.2" sap2010:WorkflowViewState.IdRef="GoogleSheetsApplicationScope_2" Mode="EnterId" SpreadsheetId="[ID]" UseConnectionService="True">
+    <ugas:GoogleSheetsApplicationScope ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" FileId="{x:Null}" Filename="{x:Null}" ParentFolderId="{x:Null}" ParentFolderPath="{x:Null}" SpreadsheetName="{x:Null}" Timeout="{x:Null}" Account="Please select an account." Action="UseExisting" ConnectionAccountName="testnyaratna@gmail.com #4" ConnectionId="e6d2df73-9068-4101-ae0f-d1419153f2ce" DisplayName="Use Google Spreadsheet" sap:VirtualizedContainerService.HintSize="483.2,611.2" sap2010:WorkflowViewState.IdRef="GoogleSheetsApplicationScope_2" Mode="EnterId" SpreadsheetId="[ID]" UseConnectionService="True">
       <ugas:GoogleSheetsApplicationScope.Body>
         <ActivityAction x:TypeArguments="ugas:IGoogleSheetTarget">
           <ActivityAction.Argument>
