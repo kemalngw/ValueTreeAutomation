@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>439.2,530.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>848.8,810.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Send_Report_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -43,6 +43,10 @@
       <x:String>UiPath.Mail.SMTP.Activities</x:String>
       <x:String>UiPath.Mail.Activities</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Mail.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.Mail.Activities.Enums</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -105,9 +109,10 @@
       <AssemblyReference>System.CodeDom</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Send_Report" sap:VirtualizedContainerService.HintSize="449.6,465.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Send_Report" sap:VirtualizedContainerService.HintSize="449.6,745.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="htmlOutput" />
     </Sequence.Variables>
@@ -116,13 +121,14 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Send Email Report... &quot;]" />
     <ui:InvokeCode ContinueOnError="{x:Null}" Code="' Input: yourDataTable (DataTable)&#xA;' Output: htmlOutput (String)&#xA;&#xA;htmlOutput = &quot;&lt;table style='border-collapse: collapse; width: 100%;'&gt;&quot;&#xA;&#xA;' Header&#xA;htmlOutput += &quot;&lt;thead&gt;&lt;tr style='background-color: #f2f2f2;'&gt;&quot;&#xA;For Each col As DataColumn In yourDataTable.Columns&#xA;    htmlOutput += &quot;&lt;th style='border: 1px solid #ddd; padding: 8px; text-align: left;'&gt;&quot; + col.ColumnName + &quot;&lt;/th&gt;&quot;&#xA;Next&#xA;htmlOutput += &quot;&lt;/tr&gt;&lt;/thead&gt;&quot;&#xA;&#xA;' Body&#xA;htmlOutput += &quot;&lt;tbody&gt;&quot;&#xA;For Each row As DataRow In yourDataTable.Rows&#xA;    htmlOutput += &quot;&lt;tr&gt;&quot;&#xA;    For Each col As DataColumn In yourDataTable.Columns&#xA;        htmlOutput += &quot;&lt;td style='border: 1px solid #ddd; padding: 8px;'&gt;&quot; + If(row.IsNull(col), String.Empty, row(col).ToString()) + &quot;&lt;/td&gt;&quot;&#xA;    Next&#xA;    htmlOutput += &quot;&lt;/tr&gt;&quot;&#xA;Next&#xA;htmlOutput += &quot;&lt;/tbody&gt;&lt;/table&gt;&quot;" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="387.2,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
       <ui:InvokeCode.Arguments>
         <OutArgument x:TypeArguments="x:String" x:Key="htmlOutput">[htmlOutput]</OutArgument>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="yourDataTable">[StatusReport]</InArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
-    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" Email="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" Port="{x:Null}" ReplyTo="{x:Null}" ResourceAttachmentList="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" Server="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentInputMode="Existing" Body="[string.Format( Config(&quot;body_report&quot;).ToString, now.ToString(&quot;dd MMMM yyyy HH:mm&quot;), htmlOutput)]" ConnectionMode="IntegrationService" DisplayName="Send SMTP Mail Message" EnableSSL="True" sap:VirtualizedContainerService.HintSize="387.2,148.8" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="False" SecureConnection="Auto" Subject="[Config(&quot;subject_report&quot;).ToString]" To="[Config(&quot;receiver_report&quot;).ToString]" UseISConnection="True">
+    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" ReplyTo="{x:Null}" ResourceAttachmentList="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" AttachmentInputMode="Existing" Body="[string.format(config(&quot;body_report&quot;).ToString,now.ToString(&quot;dd MMMM yyyy HH:mm&quot;), htmlOutput)]" ConnectionMode="LegacyConfiguration" DisplayName="Send SMTP Email" Email="[Config(&quot;sender_email&quot;).ToString]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="387.2,246.4" sap2010:WorkflowViewState.IdRef="SendMail_3" IgnoreCRL="False" IsBodyHtml="True" Password="[Config(&quot;password_app_email&quot;).ToString]" Port="[cint(Config(&quot;port_email&quot;))]" SecureConnection="Auto" Server="[Config(&quot;server_email&quot;).ToString]" Subject="[Config(&quot;subject_report&quot;).ToString]" To="[Config(&quot;receiver_report&quot;).ToString]" UseISConnection="False" UseOAuth="False">
       <ui:SendMail.AttachmentsBackup>
         <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
           <usau:BackupSlot.BackupValues>
@@ -131,9 +137,20 @@
         </usau:BackupSlot>
       </ui:SendMail.AttachmentsBackup>
       <ui:SendMail.ConnectionDetailsBackupSlot>
-        <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="IntegrationService">
+        <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="LegacyConfiguration">
           <usau:BackupSlot.BackupValues>
-            <scg:Dictionary x:TypeArguments="umae:ConnectionDetails, scg:List(x:Object)" />
+            <scg:List x:TypeArguments="x:Object" x:Key="IntegrationService" Capacity="1">
+              <x:String>8e35a239-2308-4816-998f-07da7570a4c9</x:String>
+            </scg:List>
+            <scg:List x:TypeArguments="x:Object" x:Key="LegacyConfiguration" Capacity="7">
+              <x:Null />
+              <x:Null />
+              <x:Null />
+              <x:Null />
+              <x:Null />
+              <x:Null />
+              <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+            </scg:List>
           </usau:BackupSlot.BackupValues>
         </usau:BackupSlot>
       </ui:SendMail.ConnectionDetailsBackupSlot>
