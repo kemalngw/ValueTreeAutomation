@@ -112,7 +112,7 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Send_Report" sap:VirtualizedContainerService.HintSize="449.6,745.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Send_Report" sap:VirtualizedContainerService.HintSize="416,576.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="htmlOutput" />
     </Sequence.Variables>
@@ -128,7 +128,7 @@
         <InArgument x:TypeArguments="sd:DataTable" x:Key="yourDataTable">[StatusReport]</InArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
-    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" ReplyTo="{x:Null}" ResourceAttachmentList="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" AttachmentInputMode="Existing" Body="[string.format(config(&quot;body_report&quot;).ToString,now.ToString(&quot;dd MMMM yyyy HH:mm&quot;), htmlOutput)]" ConnectionMode="LegacyConfiguration" DisplayName="Send SMTP Email" Email="[Config(&quot;sender_email&quot;).ToString]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="387.2,246.4" sap2010:WorkflowViewState.IdRef="SendMail_3" IgnoreCRL="False" IsBodyHtml="True" Password="[Config(&quot;password_app_email&quot;).ToString]" Port="[cint(Config(&quot;port_email&quot;))]" SecureConnection="Auto" Server="[Config(&quot;server_email&quot;).ToString]" Subject="[Config(&quot;subject_report&quot;).ToString]" To="[Config(&quot;receiver_report&quot;).ToString]" UseISConnection="False" UseOAuth="False">
+    <ui:SendMail ResourceAttachmentList="{x:Null}" AttachmentInputMode="Existing" AttachmentsCollection="{x:Null}" Bcc="{x:Null}" Body="[string.format(config(&quot;body_report&quot;).ToString,now.ToString(&quot;dd MMMM yyyy HH:mm&quot;), htmlOutput)]" Cc="{x:Null}" ConnectionMode="LegacyConfiguration" ContinueOnError="{x:Null}" DisplayName="Send SMTP Email" Email="[Config(&quot;sender_email&quot;).ToString]" EnableSSL="True" From="{x:Null}" sap:VirtualizedContainerService.HintSize="387.2,246.4" sap2010:WorkflowViewState.IdRef="SendMail_3" IgnoreCRL="False" IsBodyHtml="True" MailMessage="{x:Null}" Name="{x:Null}" Password="[Config(&quot;password_app_email&quot;).ToString]" Port="[cint(Config(&quot;port_email&quot;))]" ReplyTo="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" SecureConnection="Auto" SecurePassword="{x:Null}" Server="[Config(&quot;server_email&quot;).ToString]" Subject="[Config(&quot;subject_report&quot;).ToString]" TimeoutMS="{x:Null}" To="[Config(&quot;receiver_report&quot;).ToString]" UseISConnection="False" UseOAuth="False">
       <ui:SendMail.AttachmentsBackup>
         <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
           <usau:BackupSlot.BackupValues>
