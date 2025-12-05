@@ -223,18 +223,6 @@
                 <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Trace" Message="[&quot;ASJ...&quot;]" />
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Module\ASJ\ASJ_Process.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="484.8,145.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Module\ASJ\ASJ_Process.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_ASJPNL_FilePath">
-                      <Literal x:TypeArguments="x:String">D:\RIFKI\Valuetree 2025\20251127_Big 5 Data template shared to NGW\ASJ_P&amp;L MARET 25.xlsx</Literal>
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_ASJSPUL_FilePath">
-                      <Literal x:TypeArguments="x:String">D:\RIFKI\Valuetree 2025\20251127_Big 5 Data template shared to NGW\ASJ_AUM SPUL MARET 2025.xlsx</Literal>
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_ASJDPLK_FilePath">
-                      <Literal x:TypeArguments="x:String">D:\RIFKI\Valuetree 2025\20251127_Big 5 Data template shared to NGW\ASJ_AUM DPLK_BK_MARET 2025.xlsx</Literal>
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_ASJNBP_FilePath">
-                      <Literal x:TypeArguments="x:String">D:\RIFKI\Valuetree 2025\20251127_Big 5 Data template shared to NGW\ASJ_NBP MARET 2025.xlsx</Literal>
-                    </InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorFolder">
                       <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;orchestrator_folder&quot;).ToString" />
                     </InArgument>
@@ -250,7 +238,6 @@
                     <InArgument x:TypeArguments="x:Int32" x:Key="in_ColumnIdxPNL">
                       <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="Cint(Config(&quot;ASJ PNL Month Index&quot;).ToString)" />
                     </InArgument>
-                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_templateASJ" />
                     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
                       <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
                     </InArgument>
