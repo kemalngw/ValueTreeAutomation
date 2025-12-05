@@ -5,7 +5,6 @@
     <x:Property Name="in_SpreadsheetID" Type="InArgument(x:String)" />
     <x:Property Name="in_SheetName" Type="InArgument(x:String)" />
     <x:Property Name="in_ColumnIdxPNL" Type="InArgument(x:Int32)" />
-    <x:Property Name="in_dt_templateASJ" Type="InArgument(sd:DataTable)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_ColumnIdxOutput" Type="InArgument(x:Int32)" />
     <x:Property Name="in_RowIdxOutput" Type="InArgument(x:Int32)" />
@@ -151,7 +150,7 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ASJ_Process" sap:VirtualizedContainerService.HintSize="920.4000000000001,2129.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ASJ_Process" sap:VirtualizedContainerService.HintSize="920.4000000000001,2089.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_PNL" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_SPUL" />
@@ -215,7 +214,7 @@
         </Assign.Value>
       </Assign>
     </Sequence>
-    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="577.6,1104" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="577.6,1064" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>
