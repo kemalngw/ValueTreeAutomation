@@ -151,7 +151,7 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ASJ_Process" sap:VirtualizedContainerService.HintSize="920.4000000000001,729.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ASJ_Process" sap:VirtualizedContainerService.HintSize="920.4000000000001,1166.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_PNL" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_SPUL" />
@@ -175,10 +175,10 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Assign file paths for different ASJ files" sap:VirtualizedContainerService.HintSize="449.6,100.8" sap2010:WorkflowViewState.IdRef="Sequence_73">
+    <Sequence DisplayName="Assign file paths for different ASJ files" sap:VirtualizedContainerService.HintSize="467.2,537.6" sap2010:WorkflowViewState.IdRef="Sequence_73">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -187,7 +187,7 @@
           <OutArgument x:TypeArguments="x:String">[ASJPNL_FilePath]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[System.IO.Directory.GetFiles(in_Config("ASJ_InputFolderPath").ToString+"\PNL").DefaultIfEmpty(String.Empty).First()]</InArgument>
+          <InArgument x:TypeArguments="x:String">[System.IO.Directory.GetFiles(in_Config("ASJ_SubFolderPNL").ToString).DefaultIfEmpty(String.Empty).First()]</InArgument>
         </Assign.Value>
       </Assign>
       <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_44">
@@ -195,7 +195,7 @@
           <OutArgument x:TypeArguments="x:String">[ASJNBP_FilePath]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[System.IO.Directory.GetFiles(in_Config("ASJ_InputFolderPath").ToString+"\NBP").DefaultIfEmpty(String.Empty).First()]</InArgument>
+          <InArgument x:TypeArguments="x:String">[System.IO.Directory.GetFiles(in_Config("ASJ_SubFolderNBP").ToString).DefaultIfEmpty(String.Empty).First()]</InArgument>
         </Assign.Value>
       </Assign>
       <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_45">
@@ -203,7 +203,7 @@
           <OutArgument x:TypeArguments="x:String">[ASJDPLK_FilePath]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[System.IO.Directory.GetFiles(in_Config("ASJ_InputFolderPath").ToString+"\DPLK").DefaultIfEmpty(String.Empty).First()]</InArgument>
+          <InArgument x:TypeArguments="x:String">[System.IO.Directory.GetFiles(in_Config("ASJ_SubFolderDPLK").ToString).DefaultIfEmpty(String.Empty).First()]</InArgument>
         </Assign.Value>
       </Assign>
       <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_46">
@@ -211,11 +211,11 @@
           <OutArgument x:TypeArguments="x:String">[ASJSPUL_FilePath]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="x:String">[System.IO.Directory.GetFiles(in_Config("ASJ_InputFolderPath").ToString+"\SPUL").DefaultIfEmpty(String.Empty).First()]</InArgument>
+          <InArgument x:TypeArguments="x:String">[System.IO.Directory.GetFiles(in_Config("ASJ_SubFolderSPUL").ToString).DefaultIfEmpty(String.Empty).First()]</InArgument>
         </Assign.Value>
       </Assign>
     </Sequence>
-    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="449.6,84.8" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="467.2,84.8" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>
@@ -410,7 +410,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ueab:ExcelProcessScopeX>
-    <If Condition="[String.IsNullOrWhiteSpace(in_DateTarget)]" DisplayName="Assign current month-year to in_DateTarget if not empty" sap:VirtualizedContainerService.HintSize="449.6,84.8" sap2010:WorkflowViewState.IdRef="If_4">
+    <If Condition="[String.IsNullOrWhiteSpace(in_DateTarget)]" DisplayName="Assign current month-year to in_DateTarget if not empty" sap:VirtualizedContainerService.HintSize="467.2,84.8" sap2010:WorkflowViewState.IdRef="If_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -444,7 +444,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <Assign sap:VirtualizedContainerService.HintSize="449.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_42">
+    <Assign sap:VirtualizedContainerService.HintSize="467.2,113.6" sap2010:WorkflowViewState.IdRef="Assign_42">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[StartingCell]</OutArgument>
       </Assign.To>
@@ -452,7 +452,7 @@
         <InArgument x:TypeArguments="x:String">[UiPath.Excel.Helpers.ExcelUtilities.ConvertColumnIndexToColumnLetter(in_ColumnIdxOutput)+in_RowIdxOutput.ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_dt_templateASJ]" DisplayName="For Each Row in Data Table ASJ PNL" sap:VirtualizedContainerService.HintSize="449.6,84.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_dt_templateASJ]" DisplayName="For Each Row in Data Table ASJ PNL" sap:VirtualizedContainerService.HintSize="467.2,84.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
@@ -1240,7 +1240,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Module\Global\WriteRangeGSheet.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="449.6,145.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Module\Global\WriteRangeGSheet.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Module\Global\WriteRangeGSheet.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="467.2,145.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Module\Global\WriteRangeGSheet.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="TableOutput">[in_dt_templateASJ]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="ID">[in_SpreadsheetID]</InArgument>
@@ -1248,7 +1248,7 @@
         <InArgument x:TypeArguments="x:String" x:Key="SheetName">[in_SheetName]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Sequence DisplayName="Update Asset" sap:VirtualizedContainerService.HintSize="449.6,92" sap2010:WorkflowViewState.IdRef="Sequence_72">
+    <Sequence DisplayName="Update Asset" sap:VirtualizedContainerService.HintSize="467.2,92" sap2010:WorkflowViewState.IdRef="Sequence_72">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
