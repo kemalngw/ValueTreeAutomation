@@ -168,6 +168,7 @@
       <Variable x:TypeArguments="x:String" Default="D:\RIFKI\Valuetree 2025\20251127_Big 5 Data template shared to NGW\ASJ_AUM SPUL MARET 2025.xlsx" Name="ASJSPUL_FilePath" />
       <Variable x:TypeArguments="x:String" Default="D:\RIFKI\Valuetree 2025\20251127_Big 5 Data template shared to NGW\ASJ_AUM DPLK_BK_MARET 2025.xlsx" Name="ASJDPLK_FilePath" />
       <Variable x:TypeArguments="x:String" Default="D:\RIFKI\Valuetree 2025\20251127_Big 5 Data template shared to NGW\ASJ_NBP MARET 2025.xlsx" Name="ASJNBP_FilePath" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_templateASJ" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -243,7 +244,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ueab:ReadRangeX DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="443.2,192.8" sap2010:WorkflowViewState.IdRef="ReadRangeX_1" Range="[Excel.Sheet(&quot;ASJ&quot;)]" ReadFormatting="RawValue" SaveTo="[in_dt_templateASJ]" VisibleOnly="False" />
+                    <ueab:ReadRangeX DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="443.2,192.8" sap2010:WorkflowViewState.IdRef="ReadRangeX_1" Range="[Excel.Sheet(&quot;ASJ&quot;)]" ReadFormatting="RawValue" SaveTo="[dt_templateASJ]" VisibleOnly="False" />
                   </Sequence>
                 </ActivityAction>
               </ueab:ExcelApplicationCard.Body>
@@ -455,7 +456,7 @@
         <InArgument x:TypeArguments="x:String">[UiPath.Excel.Helpers.ExcelUtilities.ConvertColumnIndexToColumnLetter(in_ColumnIdxOutput)+in_RowIdxOutput.ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_dt_templateASJ]" DisplayName="For Each Row in Data Table ASJ PNL" sap:VirtualizedContainerService.HintSize="577.6,56.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_templateASJ]" DisplayName="For Each Row in Data Table ASJ PNL" sap:VirtualizedContainerService.HintSize="577.6,56.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
@@ -1245,7 +1246,7 @@
     </ui:ForEachRow>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Module\Global\WriteRangeGSheet.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="467.2,145.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Module\Global\WriteRangeGSheet.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="TableOutput">[in_dt_templateASJ]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="TableOutput">[dt_templateASJ]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="ID">[in_SpreadsheetID]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="Range">[StartingCell]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="SheetName">[in_SheetName]</InArgument>
