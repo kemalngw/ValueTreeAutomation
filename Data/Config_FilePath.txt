@@ -1,1 +1,1 @@
-﻿G:\My Drive\Value Tree\Config\Config.xlsx
+﻿Data/Config.xlsx
